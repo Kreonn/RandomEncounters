@@ -1,5 +1,10 @@
 ''' main.py
     Game entry point
 '''
-if __name__ == "__main__":
+
+def main():
+    ''' Main function '''
     print("Hello World!")
+
+if __name__ == "__main__":
+    main()
