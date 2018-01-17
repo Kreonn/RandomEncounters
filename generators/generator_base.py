@@ -1,3 +1,7 @@
+''' generator_base.py
+
+    This module contains an abstract class for all of the generators
+'''
 from definitions import ROOT_DIR
 from abc import ABC
 from yaml import load, CLoader, YAMLError

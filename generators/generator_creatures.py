@@ -2,8 +2,9 @@
 
     This module provides methods to generate creatures
 '''
-from entities.entity_creature import Creature
 from generators.generator_base import BaseGenerator
+from entities.entity_creature import Creature
+from engine.battle.stats import Stats
 from utils.random_utils import get_random_string_from_list
 
 
@@ -17,7 +18,8 @@ class CreaturesGenerator(BaseGenerator):
 
         # Draw creature parts
         base = get_random_string_from_list(creatures_base_list)
+        stats = Stats()
 
         # Create and return creature
-        creature = Creature(base)
+        creature = Creature(base, stats)
         return creature
