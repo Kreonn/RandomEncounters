@@ -5,7 +5,7 @@
 from generators.generator_base import BaseGenerator
 from entities.entity_creature import Creature
 from engine.battle.stats import Stats
-from utils.random_utils import get_random_string_from_list
+from utils.utils_random import get_random_string_from_list
 
 
 class CreaturesGenerator(BaseGenerator):
@@ -14,7 +14,7 @@ class CreaturesGenerator(BaseGenerator):
 
     def generate(self):
         # Load lists
-        creatures_base_list = self.load_list("creatures_base")
+        creatures_base_list = self.load_db("creatures_base")
 
         # Draw creature parts
         base = get_random_string_from_list(creatures_base_list)
