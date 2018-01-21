@@ -4,7 +4,7 @@
 '''
 from generators.generator_base import BaseGenerator
 from entities.entity_creature import Creature
-from engine.battle.stats import Stats
+from engine.battle.stats import StatsContainer
 from utils.utils_random import get_random_string_from_list
 
 
@@ -18,7 +18,7 @@ class CreaturesGenerator(BaseGenerator):
 
         # Draw creature parts
         base = get_random_string_from_list(creatures_base_list)
-        stats = Stats()
+        stats = StatsContainer()
 
         # Create and return creature
         creature = Creature(base, stats)

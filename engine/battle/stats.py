@@ -2,19 +2,33 @@
 
     This module contains a class representing combat stats
 '''
+from utils.utils_yaml import load_yaml
 
 
-class Stats(object):
-    def __init__(self, level=1, max_hp=20, max_mp=5, strength=5,
-                 intelligence=5, dexterity=5, faith=5, constitution=5,
-                 willpower=5, sin=5):
-        self.level = level
-        self.max_hp = max_hp
-        self.max_mp = max_mp
-        self.strength = strength
-        self.intelligence = intelligence
-        self.dexterity = dexterity
-        self.faith = faith
-        self.constitution = constitution
-        self.willpower = willpower
-        self.sin = sin
+class Stat(object):
+    ''' Class representing a single stat '''
+    def __init__(self, display, abv, categ, counter, value):
+        self.display_name = display
+        self.abreviation = abv
+        self.category = categ
+        self.counter = counter
+        self.value = value
+
+
+class StatsContainer(object):
+    ''' Class representing a set of stats '''
+    def __init__(self):
+        self.container = {}
+        self.__load_stats()
+
+    def __load_stats(self):
+        stats_db = load_yaml("stats")
+
+        for key, dictionary in stats_db.items():
+            self.container[key] = Stat(
+                dictionary["display"],
+                dictionary["abv"],
+                dictionary["category"],
+                dictionary["counter"],
+                dictionary["start"]
+            )

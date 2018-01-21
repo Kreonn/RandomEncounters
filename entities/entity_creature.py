@@ -19,9 +19,10 @@ class Creature(BaseEntity):
     def __str__(self):
         description = "[Creature] {0}\n".format(self.get_name())
 
-        for key, value in self.stats.__dict__.items():
-            description += "   {0:15s}: {1:5d}\n".format(key, value)
-        
+        for _, stat in self.stats.container.items():
+            description += "   {0:3s}: {1:4d}\n".format(stat.abreviation,
+                                                        stat.value)
+
         return description
 
     def get_name(self):
