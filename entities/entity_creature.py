@@ -2,10 +2,10 @@
 
     This module provides everything we need to manipulate a creature
 '''
-from entities.entity_base import BaseEntity
+from entities.entity_living import LivingEntity
 
 
-class Creature(BaseEntity):
+class Creature(LivingEntity):
     ''' Class representing a creature '''
     def __init__(self, base, stats):
         ''' Builds a creature
@@ -13,15 +13,15 @@ class Creature(BaseEntity):
             :param base:
                 Base type of the creature
         '''
-        self.base = base
-        self.stats = stats
+        super().__init__(base, stats)
 
     def __str__(self):
         description = "[Creature] {0}\n".format(self.get_name())
 
-        for key, value in self.stats.__dict__.items():
-            description += "   {0:15s}: {1:5d}\n".format(key, value)
-        
+        for _, stat in self.stats.container.items():
+            description += "   {0:3s}: {1:4d}\n".format(stat.abreviation,
+                                                        stat.value)
+
         return description
 
     def get_name(self):
@@ -30,4 +30,4 @@ class Creature(BaseEntity):
             :return:
                 Name of the creature
         '''
-        return "{0}".format(self.base).capitalize()
+        return "{0}".format(self.name).capitalize()

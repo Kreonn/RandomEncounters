@@ -1,0 +1,51 @@
+---
+stats:
+  strength:
+    display: "Strength"
+    abv: "Str"
+    category: physical
+    counter: constitution
+    start: 5
+
+  intelligence:
+    display: "Intelligence"
+    abv: "Int"
+    category: mental
+    counter: willpower
+    start: 5
+
+  dexterity:
+    display: "Dexterity"
+    abv: "Dex"
+    category: physical
+    counter: dexterity
+    start: 5
+
+  faith:
+    display: "Faith"
+    abv: "Fth"
+    category: divine
+    counter: sin
+    start: 5
+
+  constitution:
+    display: "Constitution"
+    abv: "Cst"
+    category: physical
+    counter: strength
+    start: 5
+
+  willpower:
+    display: "Willpower"
+    abv: "Wlp"
+    category: mental
+    counter: intelligence
+    start: 5
+
+  sin:
+    display: "Sin"
+    abv: "Sin"
+    category: divine
+    counter: faith
+    start: 5
+...
