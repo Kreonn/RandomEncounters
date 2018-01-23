@@ -21,5 +21,5 @@ class CreaturesGenerator(BaseGenerator):
         stats = StatsContainer()
 
         # Create and return creature
-        creature = Creature(base, stats)
+        creature = Creature(base, 1, 20, 5, stats)
         return creature
