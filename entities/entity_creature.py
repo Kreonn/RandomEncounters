@@ -10,11 +10,7 @@ class Creature(LivingEntity):
     ''' Class representing a creature '''
     def __init__(self, base: str, level: int,
                  max_hp: int, max_mp: int, stats: StatsContainer):
-        ''' Builds a creature
-
-            :param base:
-                Base type of the creature
-        '''
+        ''' Builds a creature '''
         super().__init__(base, level, max_hp, max_mp, stats)
 
     def __str__(self):
@@ -23,8 +19,8 @@ class Creature(LivingEntity):
 
         description += "HP: {0:4d}/{1:4d}".format(self.current_hp,
                                                   self.max_hp)
-        description += "    MP: {0:4d}/{1:4d}\n".format(self.current_mp,
-                                                        self.max_mp)
+        description += "\tMP: {0:4d}/{1:4d}\n".format(self.current_mp,
+                                                      self.max_mp)
 
         for _, stat in self.stats.container.items():
             description += "    {0:3s}: {1:4d}\n".format(stat.abreviation,
