@@ -13,3 +13,6 @@ install:
 # command to run tests
 script:
   - coverage run --source . setup.py test
+
+after_success:
+  coveralls
