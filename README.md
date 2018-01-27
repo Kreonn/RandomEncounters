@@ -1,5 +1,7 @@
 # Random Encounters
 
+[![Build Status](https://travis-ci.org/Kreonn/RandomEncounters.svg?branch=master)](https://travis-ci.org/Kreonn/RandomEncounters)[![Coverage Status](https://coveralls.io/repos/github/Kreonn/RandomEncounters/badge.svg?branch=master)](https://coveralls.io/github/Kreonn/RandomEncounters?branch=master)
+
 ## Goal of the project
 
 This project started on January, 12th 2018. Its primary goal is entertainment, so please don't expect anything serious ;p
