@@ -24,14 +24,14 @@ def load_yaml(dictionary_name, test_mode=False):
         file_path = DB_DIR + dictionary_name + ".yml"
     result_list = []
 
-    with open(file_path, mode='r') as yml_file:
-        try:
+    try:
+        with open(file_path, mode='r') as yml_file:
             result_list = load(yml_file, Loader=CLoader)[dictionary_name]
-        except YAMLError as yaml_err:
-            print("Error while parsing YAML file ({0})".format(yaml_err))
-            raise YAMLError
-        except FileNotFoundError:
-            print("File {0} does not exist".format(file_path))
-            raise FileNotFoundError
+    except YAMLError as yaml_err:
+        print("Error while parsing YAML file ({0})".format(yaml_err))
+        raise YAMLError
+    except FileNotFoundError:
+        print("File {0} does not exist".format(file_path))
+        raise FileNotFoundError
 
     return result_list
