@@ -1,3 +1,7 @@
+''' test_utils_random.py
+
+    Unit tests for utils_random
+'''
 from utils.utils_random import get_random_string_from_list
 
 
