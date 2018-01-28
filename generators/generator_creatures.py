@@ -4,7 +4,7 @@
 '''
 from generators.generator_base import BaseGenerator
 from entities.entity_creature import Creature
-from engine.battle.stats import StatsContainer
+from engine.stats import StatsContainer
 from utils.utils_random import get_random_string_from_list
 
 

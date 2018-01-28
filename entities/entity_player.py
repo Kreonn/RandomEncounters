@@ -3,13 +3,11 @@
     This module provides everything we need to manipulate the player
 '''
 from entities.entity_living import LivingEntity
-from engine.battle.stats import StatsContainer
 
 
 class Player(LivingEntity):
     ''' Class representing the player's character '''
-    def __init__(self, name: str, level: int, max_hp: int,
-                 max_mp: int, stats: StatsContainer):
+    def __init__(self, name, level, max_hp, max_mp, stats):
         ''' Builds a player '''
         super().__init__(name, level, max_hp, max_mp, stats)
         self.experience = 0
