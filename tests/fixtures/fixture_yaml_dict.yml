@@ -1,0 +1,10 @@
+fixture_yaml_dict:
+  test_1:
+    string: "test_1"
+    integer: 1
+  test_2:
+    string: "test_2"
+    integer: 2
+  test_3:
+    string: "test_3"
+    integer: 3
