@@ -12,4 +12,4 @@ class BaseEntity(ABC):
 
     @abstractmethod
     def get_name(self):
-        pass
+        raise NotImplementedError

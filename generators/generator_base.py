@@ -9,7 +9,7 @@ from utils.utils_yaml import load_yaml
 class BaseGenerator(ABC):
     @abstractmethod
     def generate(self):
-        pass
+        raise NotImplementedError
 
     def load_db(self, dictionary_name):
         return load_yaml(dictionary_name)
