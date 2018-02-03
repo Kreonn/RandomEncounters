@@ -26,3 +26,6 @@ class Player(LivingEntity):
                                                          stat.value)
 
         return description
+
+    def get_name(self):
+        return "{0}".format(self.name)

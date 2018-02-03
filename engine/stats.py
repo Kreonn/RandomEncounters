@@ -32,3 +32,6 @@ class StatsContainer(object):
                 dictionary["counter"],
                 dictionary["start"]
             )
+
+    def get_stat(self, stat_name):
+        return self.container[stat_name]

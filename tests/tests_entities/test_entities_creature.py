@@ -4,7 +4,7 @@
 '''
 import pytest
 from entities.entity_creature import Creature
-from engine.stats import StatsContainer
+from engine.stats import Stat, StatsContainer
 
 
 class TestEntitiesCreature(object):
@@ -13,7 +13,7 @@ class TestEntitiesCreature(object):
     @pytest.fixture
     def creature(self):
         ''' Creature fixture '''
-        return Creature("test", 1, 20, 5, StatsContainer())
+        return Creature("test", 1, 20, 5, StatsContainer(), "strength")
 
     def test_creature_constructor(self, creature):
         ''' Test for creature building '''
@@ -31,3 +31,16 @@ class TestEntitiesCreature(object):
     def test_creature_get_name(self, creature):
         ''' Test for creature get_name function '''
         assert creature.get_name() == "Test"
+
+    def test_creature_get_main_stat(self, creature):
+        main_stat = creature.get_main_stat()
+
+        assert isinstance(main_stat, Stat)
+        assert main_stat.display_name == "Strength"
+
+    def test_creature_is_alive(self, creature):
+        assert creature.is_alive()
+
+        creature.current_hp = 0
+
+        assert not creature.is_alive()
