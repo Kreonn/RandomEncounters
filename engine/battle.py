@@ -2,13 +2,15 @@
 
     This module contains the rules of battle in the game
 '''
+from engine.actions import Attack
 
 
 class TurnReport(object):
     ''' Class representing the result of a turn '''
-    def __init__(self, actor, action):
+    def __init__(self, actor, action, action_result):
         self.actor = actor
         self.action = action
+        self.action_result = action_result
 
 
 class Battle(object):
@@ -18,14 +20,27 @@ class Battle(object):
         self.creature = creature
         self.turn = 1
         self.is_player_turn = self.__get_turn_order()
+        self.actions = {
+            "attack": Attack()
+        }
 
-    def execute_turn(self, action):
+    def execute_turn(self, action, **kwargs):
         ''' Apply an action for the current turn '''
-        actor = "player" if self.is_player_turn else "creature"
-        turn_report = TurnReport(actor, action)
+        if self.is_player_turn:
+            actor = self.player
+            target = self.creature
+        else:
+            actor = self.creature
+            target = self.player
+
+        action_result = self.actions[action].execute_action(actor,
+                                                            target,
+                                                            **kwargs)
 
         self.turn += 1
+        self.is_player_turn = not self.is_player_turn
 
+        turn_report = TurnReport(actor, action, action_result)
         return turn_report
 
     def __get_turn_order(self):

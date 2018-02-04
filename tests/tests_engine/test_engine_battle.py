@@ -6,6 +6,7 @@ import pytest
 from entities.entity_player import Player
 from entities.entity_creature import Creature
 from engine.stats import StatsContainer
+from engine.actions import ActionResult
 from engine.battle import Battle, TurnReport
 
 
@@ -40,5 +41,14 @@ class TestEngineBattle(object):
 
         assert battle.turn == 2
         assert isinstance(turn_report, TurnReport)
-        assert turn_report.actor == "player"
+        assert isinstance(turn_report.actor, Player)
+        assert isinstance(turn_report.action_result, ActionResult)
+        assert turn_report.action == "attack"
+
+        turn_report = battle.execute_turn("attack")
+
+        assert battle.turn == 3
+        assert isinstance(turn_report, TurnReport)
+        assert isinstance(turn_report.actor, Creature)
+        assert isinstance(turn_report.action_result, ActionResult)
         assert turn_report.action == "attack"
