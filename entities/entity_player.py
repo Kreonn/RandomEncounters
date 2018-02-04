@@ -28,4 +28,4 @@ class Player(LivingEntity):
         return description
 
     def get_name(self):
-        return "{0}".format(self.name)
+        return "{0}".format(self.name).capitalize()
