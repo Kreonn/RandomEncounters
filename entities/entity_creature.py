@@ -7,9 +7,9 @@ from entities.entity_living import LivingEntity
 
 class Creature(LivingEntity):
     ''' Class representing a creature '''
-    # def __init__(self, base, level, max_hp, max_mp, stats):
-    #     ''' Builds a creature '''
-    #     super().__init__(base, level, max_hp, max_mp, stats)
+    def __init__(self, base, level, max_hp, max_mp, stats, main_stat):
+        ''' Builds a creature '''
+        super().__init__(base, level, max_hp, max_mp, stats, main_stat)
 
     def __str__(self):
         description = "[Creature] {0} Lvl.{1}\n".format(self.get_name(),

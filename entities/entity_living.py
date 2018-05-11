@@ -2,12 +2,13 @@
 
     This module provides a base class for living entities
 '''
+from abc import abstractmethod
 from entities.entity_base import BaseEntity
 
 
 class LivingEntity(BaseEntity):
     ''' Class representing a living entity '''
-    def __init__(self, name, level, max_hp, max_mp, stats):
+    def __init__(self, name, level, max_hp, max_mp, stats, main_stat="strength"):
         ''' Builds a living creature
 
             :param name:
@@ -23,3 +24,10 @@ class LivingEntity(BaseEntity):
         self.max_mp = max_mp
         self.current_mp = max_mp
         self.stats = stats
+        self.main_stat = main_stat
+
+    def get_main_stat(self):
+        return self.stats.get_stat(self.main_stat)
+
+    def is_alive(self):
+        return self.current_hp > 0
